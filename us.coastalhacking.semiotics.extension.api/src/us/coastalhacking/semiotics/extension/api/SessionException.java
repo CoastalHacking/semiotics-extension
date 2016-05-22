@@ -13,5 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-@org.osgi.annotation.versioning.Version("1.0.0")
 package us.coastalhacking.semiotics.extension.api;
+
+/**
+ * <p>
+ * Represents an invalid server configuration or server credentials 
+ * </p>
+ * 
+ * @author jonpasski
+ *
+ */
+public class SessionException extends Exception {
+
+	private static final long serialVersionUID = 6746516748293532089L;
+
+	public SessionException(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+}

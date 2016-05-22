@@ -13,5 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-@org.osgi.annotation.versioning.Version("1.0.0")
 package us.coastalhacking.semiotics.extension.api;
+
+import org.osgi.annotation.versioning.ProviderType;
+
+/**
+ * <p>
+ * Entry point for Extension API for servers and projects. 
+ * </p>
+ * 
+ * @author jonpasski
+ *
+ */
+@ProviderType
+public interface Workspace {
+
+	/**
+	 * <p>
+	 * Obtain a reference to a server. Validation of url or port
+	 * occurs when authenticating to the server, not here.
+	 * </p>
+	 * 
+	 * @param url The URL of the server
+	 * @param port The port of the server
+	 * @return An unvalidated server reference
+	 */
+	Server getServer(String url, int port);
+}

@@ -13,5 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-@org.osgi.annotation.versioning.Version("1.0.0")
 package us.coastalhacking.semiotics.extension.api;
+
+import org.osgi.annotation.versioning.ProviderType;
+
+/**
+ * <p>
+ * A server establishes a session, which provides access to projects
+ * </p>
+ * 
+ * @author jonpasski
+ *
+ */
+@ProviderType
+public interface Server {
+	
+	/**
+	 * <p>
+	 * Authenticate to a server with a user name and password
+	 * </p>
+	 * 
+	 * @param name API account name
+	 * @param password API password
+	 * @return A valid server exception
+	 * @throws AuthenticationException If the server url, port, or credentials are incorrect
+	 */
+	Session login(String name, String password) throws AuthenticationException;
+}
