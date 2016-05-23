@@ -1,0 +1,24 @@
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	osgi.cmpn;version=6.0,\
+	us.coastalhacking.semiotics.extension.workspace.api;version=latest,\
+	us.coastalhacking.semiotics.extension.workspace.provider;version=latest,\
+	org.apache.felix.scr;version=2.0,\
+	org.apache.felix.log;version=1.0.1
+
+-testpath: \
+	biz.aQute.junit;version=3.0
+
+#-testpath: ${junit}
+
+javac.source: 1.8
+javac.target: 1.8
+
+Bundle-Version: 0.0.0.${tstamp}
+Private-Package: us.coastalhacking.semiotics.extension.launcher
+Export-Package: us.coastalhacking.semiotics.extension.launcher
+Include-Resource: \
+	bundles/us.coastalhacking.semiotics.extension.workspace.provider.jar=us.coastalhacking.semiotics.extension.workspace.provider.jar,\
+	bundles/org.apache.felix.scr.jar=org.apache.felix.scr-2.0.0.jar,\
+	bundles/org.apache.felix.log.jar=org.apache.felix.log-1.0.1.jar

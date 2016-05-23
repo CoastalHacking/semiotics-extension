@@ -3,3 +3,5 @@
 enroute.zip
 .metadata
 .settings/
+.DS_Store
+felix-cache/
