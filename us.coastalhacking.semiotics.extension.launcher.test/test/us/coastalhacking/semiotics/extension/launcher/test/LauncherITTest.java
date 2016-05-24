@@ -1,15 +1,15 @@
 package us.coastalhacking.semiotics.extension.launcher.test;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import us.coastalhacking.semiotics.extension.launcher.Launcher;
+import us.coastalhacking.semiotics.extension.launcher.LauncherException;
 
 /**
  * This test needs to be ran as a JUnit test, not an OSGi Test Launcher
@@ -30,12 +30,16 @@ public class LauncherITTest {
 	 * @throws Exception
 	 */
 	@Test
-	public void testStartStop() throws Exception {
+	public void testStartStop() {
 		Launcher launcher = new Launcher();
 		Map<String, String> config = new HashMap<>();
 		List<String> extras = new ArrayList<>();
-		launcher.startOsgi(extras, config);
-		launcher.stopOsgi();
+		try {
+			launcher.startOsgi(extras, config);
+			launcher.stopOsgi();
+		} catch (LauncherException e) {
+			Assert.fail("OSGi failed to start or stop");
+		}
 	}
 
 }
