@@ -41,12 +41,8 @@ Private-Package: us.coastalhacking.semiotics.extension.workspace.test
 -runrequires: \
 	osgi.identity;filter:='(osgi.identity=us.coastalhacking.semiotics.extension.workspace.test)',\
 	osgi.identity;filter:='(&(osgi.identity=osgi.enroute.junit.wrapper)(version>=4.12.0))',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
-	osgi.identity;filter:='(&(osgi.identity=org.eclipse.equinox.log)(version>=1.2.400.v20150430-1834))',\
-	osgi.identity;filter:='(&(osgi.identity=org.osgi.service.metatype)(version>=1.3.0))',\
-	osgi.identity;filter:='(&(osgi.identity=org.eclipse.osgi.services)(version>=3.5.0))',\
-	osgi.identity;filter:='(&(osgi.identity=us.coastalhacking.semiotics.extension.workspace.provider)(version>=0.0.0.201605262333))'
+	osgi.identity;filter:='(&(osgi.identity=org.eclipse.equinox.log)(version>=1.2.400))',\
+	osgi.identity;filter:='(osgi.identity=us.coastalhacking.semiotics.extension.workspace.provider)'
 	
 # Bundles not autoresolved
 #	org.osgi.service.event;version=1.3.1
@@ -55,9 +51,6 @@ Private-Package: us.coastalhacking.semiotics.extension.workspace.test
 -runbundles: \
 	org.apache.commons.codec;version='[1.6.0,1.6.1)',\
 	org.apache.commons.logging;version='[1.1.1,1.1.2)',\
-	org.apache.felix.gogo.command;version='[0.16.0,0.16.1)',\
-	org.apache.felix.gogo.runtime;version='[0.16.2,0.16.3)',\
-	org.apache.felix.gogo.shell;version='[0.12.0,0.12.1)',\
 	org.apache.felix.log;version='[1.0.1,1.0.2)',\
 	org.apache.felix.metatype;version='[1.1.2,1.1.3)',\
 	org.apache.felix.scr;version='[2.0.2,2.0.3)',\
@@ -76,14 +69,15 @@ Private-Package: us.coastalhacking.semiotics.extension.workspace.test
 	org.eclipse.emf.emfstore.server.model;version='[1.7.0,1.7.1)',\
 	org.eclipse.equinox.app;version='[1.3.300,1.3.301)',\
 	org.eclipse.equinox.common;version='[3.7.0,3.7.1)',\
+	org.eclipse.equinox.event;version='[1.3.100,1.3.101)',\
 	org.eclipse.equinox.log;version='[1.2.400,1.2.401)',\
 	org.eclipse.equinox.preferences;version='[3.5.300,3.5.301)',\
 	org.eclipse.equinox.registry;version='[3.6.0,3.6.1)',\
-	org.eclipse.osgi.services;version='[3.5.0,3.5.1)',\
 	org.mockito.mockito-core;version='[1.10.19,1.10.20)',\
 	org.objenesis;version='[2.2.0,2.2.1)',\
-	org.osgi.service.metatype;version='[1.3.0,1.3.1)',\
+	org.osgi.service.event;version='[1.3.1,1.3.2)',\
 	osgi.enroute.hamcrest.wrapper;version='[1.3.0,1.3.1)',\
 	osgi.enroute.junit.wrapper;version='[4.12.0,4.12.1)',\
 	us.coastalhacking.semiotics.extension.workspace.provider;version=snapshot,\
 	us.coastalhacking.semiotics.extension.workspace.test;version=snapshot
+-resolve: auto
