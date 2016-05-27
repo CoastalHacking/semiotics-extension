@@ -1,3 +1,9 @@
 #
 # This file is left open for you to define your macros
 #
+
+-plugin.semiotics.p2 = \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+	        name		=       P2; \
+	        locations	=       https://raw.githubusercontent.com/OpenSemanticsIO/semiotics-main/70ca96c36cf93dde8bb6286990b561f91b28d1e6/builds/io.opensemantics.semiotics.model.site/target/repository/r5.xml
+	        

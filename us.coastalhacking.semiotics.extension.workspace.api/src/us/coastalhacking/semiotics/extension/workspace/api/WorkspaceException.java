@@ -29,6 +29,9 @@ public class WorkspaceException extends Exception {
 
 	public WorkspaceException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
+	}
+
+	public WorkspaceException(Throwable cause) {
+		super(cause);
 	}
 }

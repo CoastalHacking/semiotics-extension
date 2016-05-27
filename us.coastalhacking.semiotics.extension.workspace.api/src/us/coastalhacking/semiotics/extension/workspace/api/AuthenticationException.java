@@ -15,6 +15,7 @@
  *******************************************************************************/
 package us.coastalhacking.semiotics.extension.workspace.api;
 
+
 /**
  * <p>
  * Represents an invalid server configuration or server credentials 
@@ -35,6 +36,14 @@ public class AuthenticationException extends Exception {
 	 */
 	public AuthenticationException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
 	}
+
+	public AuthenticationException() {
+		super();
+	}
+
+	public AuthenticationException(Throwable cause) {
+		super(cause);
+	}
+
 }
