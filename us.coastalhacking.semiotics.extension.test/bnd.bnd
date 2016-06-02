@@ -16,12 +16,15 @@ Test-Cases: ${classes;CONCRETE;ANNOTATED;org.junit.runner.RunWith}
 	osgi.core;version=6.0,\
 	osgi.cmpn;version=6.0,\
 	us.coastalhacking.semiotics.extension.api;version=latest,\
+	org.eclipse.emf.common,\
+	org.eclipse.emf.ecore,\
 	org.eclipse.emf.emfstore.client,\
 	org.eclipse.emf.emfstore.common,\
 	org.eclipse.emf.emfstore.common.model,\
 	org.eclipse.emf.emfstore.server,\
 	org.eclipse.emf.emfstore.server.model,\
-	org.eclipse.equinox.common
+	org.eclipse.equinox.common,\
+	io.opensemantics.semiotics.model.assessment
 
 javac.source: 1.8
 javac.target: 1.8
@@ -42,7 +45,8 @@ Private-Package: us.coastalhacking.semiotics.extension.test
 	osgi.identity;filter:='(osgi.identity=us.coastalhacking.semiotics.extension.test)',\
 	osgi.identity;filter:='(&(osgi.identity=osgi.enroute.junit.wrapper)(version>=4.12.0))',\
 	osgi.identity;filter:='(&(osgi.identity=org.eclipse.equinox.log)(version>=1.2.400))',\
-	osgi.identity;filter:='(osgi.identity=us.coastalhacking.semiotics.extension.provider)'
+	osgi.identity;filter:='(osgi.identity=us.coastalhacking.semiotics.extension.provider)',\
+	osgi.identity;filter:='(&(osgi.identity=io.opensemantics.semiotics.model.assessment)(version>=1.0.0.201605250049))'
 	
 # Bundles not autoresolved
 #	org.osgi.service.event;version=1.3.1
@@ -50,6 +54,7 @@ Private-Package: us.coastalhacking.semiotics.extension.test
 
 -resolve: auto
 -runbundles: \
+	io.opensemantics.semiotics.model.assessment;version='[1.0.0,1.0.1)',\
 	org.apache.commons.codec;version='[1.6.0,1.6.1)',\
 	org.apache.commons.logging;version='[1.1.1,1.1.2)',\
 	org.apache.felix.log;version='[1.0.1,1.0.2)',\

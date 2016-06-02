@@ -22,9 +22,11 @@ Private-Package: us.coastalhacking.semiotics.extension.provider
 Export-Package: us.coastalhacking.semiotics.extension.workspace.api;provide:=true
 -runrequires: \
 	osgi.identity;filter:='(&(osgi.identity=org.eclipse.equinox.log)(version>=1.2.400.v20150430-1834))',\
-	osgi.identity;filter:='(&(osgi.identity=us.coastalhacking.semiotics.extension.provider)(version>=0.0.0.201606012209))'
+	osgi.identity;filter:='(&(osgi.identity=us.coastalhacking.semiotics.extension.provider)(version>=0.0.0.201606012209))',\
+	osgi.identity;filter:='(&(osgi.identity=io.opensemantics.semiotics.model.assessment)(version>=1.0.0))'
 -resolve: auto
 -runbundles: \
+	io.opensemantics.semiotics.model.assessment;version='[1.0.0,1.0.1)',\
 	org.apache.commons.codec;version='[1.6.0,1.6.1)',\
 	org.apache.commons.logging;version='[1.1.1,1.1.2)',\
 	org.apache.felix.log;version='[1.0.1,1.0.2)',\
