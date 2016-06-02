@@ -2,10 +2,32 @@
 	osgi.annotation;version=6.0.1,\
 	osgi.core;version=6.0,\
 	osgi.cmpn;version=6.0,\
-	us.coastalhacking.semiotics.extension.workspace.api;version=latest,\
-	us.coastalhacking.semiotics.extension.workspace.provider;version=latest,\
-	org.apache.felix.scr;version=2.0,\
-	org.apache.felix.log;version=1.0.1
+	us.coastalhacking.semiotics.extension.api;version=snapshot,\
+	us.coastalhacking.semiotics.extension.provider;version=snapshot,\
+	org.apache.commons.codec;version='[1.6.0,1.6.1)',\
+	org.apache.commons.logging;version='[1.1.1,1.1.2)',\
+	org.apache.felix.log;version='[1.0.1,1.0.2)',\
+	org.apache.felix.metatype;version='[1.1.2,1.1.3)',\
+	org.apache.felix.scr;version='[2.0.2,2.0.3)',\
+	org.eclipse.core.contenttype;version='[3.5.0,3.5.1)',\
+	org.eclipse.core.jobs;version='[3.7.0,3.7.1)',\
+	org.eclipse.core.runtime;version='[3.11.1,3.11.2)',\
+	org.eclipse.emf.common;version='[2.11.1,2.11.2)',\
+	org.eclipse.emf.ecore;version='[2.11.2,2.11.3)',\
+	org.eclipse.emf.ecore.xmi;version='[2.11.1,2.11.2)',\
+	org.eclipse.emf.edit;version='[2.11.1,2.11.2)',\
+	org.eclipse.emf.emfstore.client;version='[1.7.0,1.7.1)',\
+	org.eclipse.emf.emfstore.common;version='[1.7.0,1.7.1)',\
+	org.eclipse.emf.emfstore.common.model;version='[1.7.0,1.7.1)',\
+	org.eclipse.emf.emfstore.migration;version='[1.7.0,1.7.1)',\
+	org.eclipse.emf.emfstore.server;version='[1.7.0,1.7.1)',\
+	org.eclipse.emf.emfstore.server.model;version='[1.7.0,1.7.1)',\
+	org.eclipse.equinox.app;version='[1.3.300,1.3.301)',\
+	org.eclipse.equinox.common;version='[3.7.0,3.7.1)',\
+	org.eclipse.equinox.preferences;version='[3.5.300,3.5.301)',\
+	org.eclipse.equinox.registry;version='[3.6.0,3.6.1)',\
+	org.eclipse.equinox.log;version=1.2,\
+	org.osgi.service.event;version='[1.3.1,1.3.2)'
 
 -testpath: \
 	biz.aQute.junit;version=3.0
@@ -18,7 +40,65 @@ javac.target: 1.8
 Bundle-Version: 0.0.0.${tstamp}
 Private-Package: us.coastalhacking.semiotics.extension.launcher
 Export-Package: us.coastalhacking.semiotics.extension.launcher
+
+# There has to be a better way...
+# Currently, adding bundles to runtime
 Include-Resource: \
-	bundles/us.coastalhacking.semiotics.extension.workspace.provider.jar=us.coastalhacking.semiotics.extension.workspace.provider.jar,\
-	bundles/org.apache.felix.scr.jar=org.apache.felix.scr-2.0.0.jar,\
-	bundles/org.apache.felix.log.jar=org.apache.felix.log-1.0.1.jar
+	bundles/us.coastalhacking.semiotics.extension.provider.jar=us.coastalhacking.semiotics.extension.provider.jar,\
+	bundles/org.apache.commons.codec.jar=org.apache.commons.codec_1.6.0.v201305230611.jar,\
+	bundles/org.apache.commons.logging.jar=org.apache.commons.logging_1.1.1.v201101211721.jar,\
+	bundles/org.apache.felix.log.jar=org.apache.felix.log-1.0.1.jar,\
+	bundles/org.apache.felix.metatype.jar=org.apache.felix.metatype-1.1.2.jar,\
+	bundles/org.apache.felix.scr.jar=org.apache.felix.scr-2.0.2.jar,\
+	bundles/org.eclipse.core.contenttype.jar=org.eclipse.core.contenttype_3.5.0.v20150421-2214.jar,\
+	bundles/org.eclipse.core.jobs.jar=org.eclipse.core.jobs_3.7.0.v20150330-2103.jar,\
+	bundles/org.eclipse.core.runtime.jar=org.eclipse.core.runtime_3.11.1.v20150903-1804.jar,\
+	bundles/org.eclipse.emf.common.jar=org.eclipse.emf.common_2.11.1.v20160208-0816.jar,\
+	bundles/org.eclipse.emf.ecore.jar=org.eclipse.emf.ecore_2.11.2.v20160208-0816.jar,\
+	bundles/org.eclipse.emf.ecore.xmi.jar=org.eclipse.emf.ecore.xmi_2.11.1.v20160208-0816.jar,\
+	bundles/org.eclipse.emf.edit.jar=org.eclipse.emf.edit_2.11.1.v20160208-0841.jar,\
+	bundles/org.eclipse.emf.emfstore.client.jar=org.eclipse.emf.emfstore.client_1.7.0.v20160209-0511.jar,\
+	bundles/org.eclipse.emf.emfstore.common.jar=org.eclipse.emf.emfstore.common_1.7.0.v20160209-0511.jar,\
+	bundles/org.eclipse.emf.emfstore.common.model.jar=org.eclipse.emf.emfstore.common.model_1.7.0.v20160209-0511.jar,\
+	bundles/org.eclipse.emf.emfstore.migration.jar=org.eclipse.emf.emfstore.migration_1.7.0.v20160209-0511.jar,\
+	bundles/org.eclipse.emf.emfstore.server.jar=org.eclipse.emf.emfstore.server_1.7.0.v20160209-0511.jar,\
+	bundles/org.eclipse.emf.emfstore.server.model.jar=org.eclipse.emf.emfstore.server.model_1.7.0.v20160209-0511.jar,\
+	bundles/org.eclipse.equinox.app.jar=org.eclipse.equinox.app_1.3.300.v20150423-1356.jar,\
+	bundles/org.eclipse.equinox.common.jar=org.eclipse.equinox.common_3.7.0.v20150402-1709.jar,\
+	bundles/org.eclipse.equinox.log.jar=org.eclipse.equinox.log_1.2.400.v20150430-1834.jar,\
+	bundles/org.eclipse.equinox.preferences.jar=org.eclipse.equinox.preferences_3.5.300.v20150408-1437.jar,\
+	bundles/org.eclipse.equinox.registry.jar=org.eclipse.equinox.registry_3.6.0.v20150318-1503.jar,\
+	bundles/org.osgi.service.event.jar=org.osgi.service.event-1.3.1.jar
+
+-resolve: auto
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=us.coastalhacking.semiotics.extension.provider)',\
+	osgi.identity;filter:='(&(osgi.identity=org.eclipse.equinox.log)(version>=1.2.400))',\
+	osgi.identity;filter:='(&(osgi.identity=org.osgi.service.event)(version>=1.3.1))'
+-runbundles: \
+	org.apache.commons.codec;version='[1.6.0,1.6.1)',\
+	org.apache.commons.logging;version='[1.1.1,1.1.2)',\
+	org.apache.felix.log;version='[1.0.1,1.0.2)',\
+	org.apache.felix.metatype;version='[1.1.2,1.1.3)',\
+	org.apache.felix.scr;version='[2.0.2,2.0.3)',\
+	org.eclipse.core.contenttype;version='[3.5.0,3.5.1)',\
+	org.eclipse.core.jobs;version='[3.7.0,3.7.1)',\
+	org.eclipse.core.runtime;version='[3.11.1,3.11.2)',\
+	org.eclipse.emf.common;version='[2.11.1,2.11.2)',\
+	org.eclipse.emf.ecore;version='[2.11.2,2.11.3)',\
+	org.eclipse.emf.ecore.xmi;version='[2.11.1,2.11.2)',\
+	org.eclipse.emf.edit;version='[2.11.1,2.11.2)',\
+	org.eclipse.emf.emfstore.client;version='[1.7.0,1.7.1)',\
+	org.eclipse.emf.emfstore.common;version='[1.7.0,1.7.1)',\
+	org.eclipse.emf.emfstore.common.model;version='[1.7.0,1.7.1)',\
+	org.eclipse.emf.emfstore.migration;version='[1.7.0,1.7.1)',\
+	org.eclipse.emf.emfstore.server;version='[1.7.0,1.7.1)',\
+	org.eclipse.emf.emfstore.server.model;version='[1.7.0,1.7.1)',\
+	org.eclipse.equinox.app;version='[1.3.300,1.3.301)',\
+	org.eclipse.equinox.common;version='[3.7.0,3.7.1)',\
+	org.eclipse.equinox.event;version='[1.3.100,1.3.101)',\
+	org.eclipse.equinox.log;version='[1.2.400,1.2.401)',\
+	org.eclipse.equinox.preferences;version='[3.5.300,3.5.301)',\
+	org.eclipse.equinox.registry;version='[3.6.0,3.6.1)',\
+	org.osgi.service.event;version='[1.3.1,1.3.2)',\
+	us.coastalhacking.semiotics.extension.provider;version=snapshot

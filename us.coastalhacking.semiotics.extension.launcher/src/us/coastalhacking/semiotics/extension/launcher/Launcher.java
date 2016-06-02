@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.JarURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,6 +16,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.stream.Collectors;
 
+import org.osgi.dto.DTO;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
@@ -81,12 +81,12 @@ public class Launcher implements Workspace {
 	 * @see us.coastalhacking.semiotics.extension.workspace.api.Workspace#add(java.util.Collection, java.lang.String)
 	 */
 	@Override
-	public void add(Collection<?> objects, String project) throws WorkspaceException {
+	public void publish(DTO dto, String project) throws WorkspaceException {
 		checkFramework();
 		checkWorkspace();
 
 		if (workspace.isProject(project)) {
-			workspace.add(objects, project);
+			workspace.publish(dto, project);
 		} else {
 			throw new WorkspaceException(String.format("Project does not exist: %s", project));
 		}
@@ -137,9 +137,9 @@ public class Launcher implements Workspace {
 
 	private String getExtras(List<String> extras) {
 		List<String> myExtras = new ArrayList<>(extras);
-		// TODO: hardcoded hack around; can't call bundleContext.getBundle().getHeader();
+		// TODO: add extension API w/ version directly w/o hardcoding
+		// Can't call bundleContext.getBundle().getHeader();
 		// something like so - http://stackoverflow.com/a/1273432
-		myExtras.add("us.coastalhacking.semiotics.extension.workspace.api;version=1.0.0");
 		return myExtras.stream().collect(Collectors.joining(","));
 	}
 

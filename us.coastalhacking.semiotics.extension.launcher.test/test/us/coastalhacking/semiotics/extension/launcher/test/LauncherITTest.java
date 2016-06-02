@@ -34,6 +34,7 @@ public class LauncherITTest {
 		Launcher launcher = new Launcher();
 		Map<String, String> config = new HashMap<>();
 		List<String> extras = new ArrayList<>();
+		extras.add("us.coastalhacking.semiotics.extension.workspace.api;version=1.0.0");
 		try {
 			launcher.startOsgi(extras, config);
 			launcher.stopOsgi();

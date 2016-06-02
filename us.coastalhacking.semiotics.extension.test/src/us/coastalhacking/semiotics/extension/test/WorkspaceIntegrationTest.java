@@ -1,4 +1,4 @@
-package us.coastalhacking.semiotics.extension.workspace.test;
+package us.coastalhacking.semiotics.extension.test;
 
 import java.io.IOException;
 import java.util.Set;

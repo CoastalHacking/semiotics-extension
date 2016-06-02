@@ -2,7 +2,7 @@
 	osgi.annotation;version=6.0.1,\
 	osgi.core;version=6.0,\
 	osgi.cmpn;version=6.0,\
-	us.coastalhacking.semiotics.extension.workspace.api;version=latest,\
+	us.coastalhacking.semiotics.extension.api;version=latest,\
 	org.eclipse.emf.emfstore.server,\
 	org.eclipse.emf.emfstore.client,\
 	org.eclipse.emf.emfstore.common,\
@@ -17,12 +17,13 @@ javac.source: 1.8
 javac.target: 1.8
 
 Bundle-Version: 0.0.0.${tstamp}
-Private-Package: us.coastalhacking.semiotics.extension.workspace.provider
+Private-Package: us.coastalhacking.semiotics.extension.provider
 # Will already be on framework class path
 Export-Package: us.coastalhacking.semiotics.extension.workspace.api;provide:=true
 -runrequires: \
-	osgi.identity;filter:='(&(osgi.identity=us.coastalhacking.semiotics.extension.workspace.provider)(version>=0.0.0.201605262318))',\
-	osgi.identity;filter:='(&(osgi.identity=org.eclipse.equinox.log)(version>=1.2.400.v20150430-1834))'
+	osgi.identity;filter:='(&(osgi.identity=org.eclipse.equinox.log)(version>=1.2.400.v20150430-1834))',\
+	osgi.identity;filter:='(&(osgi.identity=us.coastalhacking.semiotics.extension.provider)(version>=0.0.0.201606012209))'
+-resolve: auto
 -runbundles: \
 	org.apache.commons.codec;version='[1.6.0,1.6.1)',\
 	org.apache.commons.logging;version='[1.1.1,1.1.2)',\
@@ -49,5 +50,4 @@ Export-Package: us.coastalhacking.semiotics.extension.workspace.api;provide:=tru
 	org.eclipse.equinox.preferences;version='[3.5.300,3.5.301)',\
 	org.eclipse.equinox.registry;version='[3.6.0,3.6.1)',\
 	org.osgi.service.event;version='[1.3.1,1.3.2)',\
-	us.coastalhacking.semiotics.extension.workspace.provider;version=snapshot
--resolve: auto
+	us.coastalhacking.semiotics.extension.provider;version=snapshot

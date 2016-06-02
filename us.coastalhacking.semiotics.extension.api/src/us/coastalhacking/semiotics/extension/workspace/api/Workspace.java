@@ -15,10 +15,10 @@
  *******************************************************************************/
 package us.coastalhacking.semiotics.extension.workspace.api;
 
-import java.util.Collection;
 import java.util.Set;
 
 import org.osgi.annotation.versioning.ProviderType;
+import org.osgi.dto.DTO;
 
 
 /**
@@ -75,17 +75,18 @@ public interface Workspace {
 
 	/**
 	 * <p>
-	 * Add extension-specific objects to this project. This method
-	 * is not idempotent! Calling it repeatedly may add multiple copies
-	 * of the same object. It is the responsibility of the provider
-	 * to insert these objects correctly into the project.
+	 * Publish an extension-specific data transfer object to this project.
+	 * The DTO passed is treated as immutable. It may be
+	 * consumed by 0 to many consumers. Calling this method repeatedly
+	 * may add multiple occurrences of the same DTO. It is the responsibility
+	 * of the provider to insert these objects correctly into the project.
 	 * </p>
 	 * 
-	 * @param objects
-	 * 	Extension-specific objects to add to this project
+	 * @param dto
+	 * 	Extension-specific data transfer object to add to this project
 	 * @param project
 	 *  Project to which objects are added
 	 * @throws WorkspaceException if the underlying session is invalid
 	 */
-	void add(Collection<?> objects, String project) throws WorkspaceException;
+	void publish(DTO dto, String project) throws WorkspaceException;
 }

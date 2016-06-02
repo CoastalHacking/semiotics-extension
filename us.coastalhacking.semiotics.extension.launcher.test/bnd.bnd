@@ -8,12 +8,14 @@ mockito: org.mockito.mockito-core;version="[1.9,2)",\
 # The API is assumed to be on the classpath of the launcher
 # In practice it'll be exported by the extension
 # The launcher jar is needed since it contains the bundles
+# And Equinox is on the test path since it's the required OSGi runtime
+# ... yay eclipse...
 -testpath: \
 	${junit},\
 	${mockito},\
-	us.coastalhacking.semiotics.extension.workspace.api;version=latest,\
+	us.coastalhacking.semiotics.extension.api;version=latest,\
 	${workspace}/us.coastalhacking.semiotics.extension.launcher/generated/us.coastalhacking.semiotics.extension.launcher.jar;version=file,\
-	org.apache.felix.framework;version=5.4
+	org.eclipse.osgi
 
 javac.source: 1.8
 javac.target: 1.8
@@ -21,4 +23,4 @@ javac.target: 1.8
 Bundle-Version: 0.0.0.${tstamp}
 Private-Package: us.coastalhacking.semiotics.extension.launcher.test
 
-Require-Capability: compile-only
+#Require-Capability: compile-only

@@ -1,6 +1,5 @@
-package us.coastalhacking.semiotics.extension.workspace.provider;
+package us.coastalhacking.semiotics.extension.provider;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -11,6 +10,7 @@ import org.eclipse.emf.emfstore.client.ESUsersession;
 import org.eclipse.emf.emfstore.client.ESWorkspace;
 import org.eclipse.emf.emfstore.client.ESWorkspaceProvider;
 import org.eclipse.emf.emfstore.server.exceptions.ESException;
+import org.osgi.dto.DTO;
 import org.osgi.service.component.annotations.Component;
 
 import us.coastalhacking.semiotics.extension.workspace.api.AuthenticationException;
@@ -68,7 +68,7 @@ public class WorkspaceProvider implements Workspace {
 	 * @see us.coastalhacking.semiotics.extension.workspace.api.Workspace#add(java.util.Collection, java.lang.String)
 	 */
 	@Override
-	public void add(Collection<?> objects, String project) throws WorkspaceException {
+	public void publish(DTO dto, String project) throws WorkspaceException {
 		// TODO Auto-generated method stub
 		
 	}
