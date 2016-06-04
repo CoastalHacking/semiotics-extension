@@ -1,4 +1,4 @@
-package us.coastalhacking.semiotics.extension.provider;
+package us.coastalhacking.semiotics.extension.workspace.provider;
 
 import java.util.List;
 import java.util.Set;

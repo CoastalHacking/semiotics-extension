@@ -1,4 +1,4 @@
-package us.coastalhacking.semiotics.extension.test;
+package us.coastalhacking.semiotics.extension.test.emfstore;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;

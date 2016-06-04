@@ -1,4 +1,4 @@
-package us.coastalhacking.semiotics.extension.test;
+package us.coastalhacking.semiotics.extension.test.workspace.provider;
 
 import java.io.IOException;
 import java.util.Set;
@@ -24,12 +24,13 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.util.tracker.ServiceTracker;
 
+import us.coastalhacking.semiotics.extension.test.AbstractService;
 import us.coastalhacking.semiotics.extension.workspace.api.AuthenticationException;
 import us.coastalhacking.semiotics.extension.workspace.api.Workspace;
 import us.coastalhacking.semiotics.extension.workspace.api.WorkspaceException;
 
 @RunWith(MockitoJUnitRunner.class)
-public class WorkspaceIntegrationTest {
+public class WorkspaceIntegrationTest extends AbstractService {
 
 	private final BundleContext context = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
 	
@@ -43,7 +44,7 @@ public class WorkspaceIntegrationTest {
 	public void before() {
   	Assert.assertNotNull(context);
   	try {
-			provider = getService(Workspace.class);
+			provider = getService(Workspace.class, context);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 			Assert.fail(e.getMessage());
@@ -101,13 +102,6 @@ public class WorkspaceIntegrationTest {
 			e.printStackTrace();
 			Assert.fail(e.getMessage());
 		}
-	}
-
-	<T> T getService(Class<T> clazz) throws InterruptedException {
-		ServiceTracker<T,T> st = new ServiceTracker<>(context, clazz, null);
-		st.open();
-		//return st.getService();
-		return st.waitForService(1000);
 	}
 
 	void deleteServers() throws ESServerNotFoundException {

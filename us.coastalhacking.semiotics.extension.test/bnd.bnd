@@ -24,7 +24,8 @@ Test-Cases: ${classes;CONCRETE;ANNOTATED;org.junit.runner.RunWith}
 	org.eclipse.emf.emfstore.server,\
 	org.eclipse.emf.emfstore.server.model,\
 	org.eclipse.equinox.common,\
-	io.opensemantics.semiotics.model.assessment
+	io.opensemantics.semiotics.model.assessment,\
+	us.coastalhacking.semiotics.extension.emf.api;version=latest
 
 javac.source: 1.8
 javac.target: 1.8
@@ -33,7 +34,11 @@ javac.target: 1.8
 # Other runtime dependencies should be added as necessary
 
 Bundle-Version: 0.0.0.${tstamp}
-Private-Package: us.coastalhacking.semiotics.extension.test
+Private-Package: \
+	us.coastalhacking.semiotics.extension.test.emf.provider,\
+	us.coastalhacking.semiotics.extension.test.workspace.provider,\
+	us.coastalhacking.semiotics.extension.test.emfstore,\
+	us.coastalhacking.semiotics.extension.test
 
 # Needed for Mockito's mocking to work
 -runsystempackages.objenesis: sun.misc,sun.reflect

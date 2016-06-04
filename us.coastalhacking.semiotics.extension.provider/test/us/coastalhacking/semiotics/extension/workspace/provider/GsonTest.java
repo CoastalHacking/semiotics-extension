@@ -1,4 +1,4 @@
-package us.coastalhacking.extension.workspace.provider;
+package us.coastalhacking.semiotics.extension.workspace.provider;
 
 import org.junit.Test;
 import org.osgi.dto.DTO;
@@ -6,7 +6,12 @@ import org.osgi.dto.DTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import io.opensemantics.semiotics.model.assessment.AssessmentFactory;
+import io.opensemantics.semiotics.model.assessment.Http;
+import us.coastalhacking.semiotics.extension.emf.provider.EmfAdapterProvider;
+
 import org.junit.Assert;
+import org.junit.Ignore;
 
 /*
  * Test DTO and JSON (de)serialization
@@ -37,9 +42,27 @@ public class GsonTest {
 		Assert.assertEquals(expected, actual);
 		Assert.assertEquals(expected, gson.toJson(gson.fromJson(expected, TestDTO.class)));
 	}
-	
+
+	@Test
+	public void testJsonToEmf() {
+		final String json = "{\"request\":\"foo\",\"response\":\"bar\"}";
+		Gson gson = new GsonBuilder().create();
+		final TestHttpDTO dto = gson.fromJson(json, TestHttpDTO.class);
+		EmfAdapterProvider provider = new EmfAdapterProvider();
+		Http http = provider.toHttp(dto);
+		String actual = http.getRequest();
+		Assert.assertTrue("foo".equals(actual));
+		actual = http.getResponse();
+		Assert.assertTrue("bar".equals(actual));
+	}
+
 	static class TestDTO extends DTO {
 		public String test;
 		public TestDTO nested;
+	}
+	
+	static class TestHttpDTO extends DTO {
+		public String request;
+		public String response;
 	}
 }
