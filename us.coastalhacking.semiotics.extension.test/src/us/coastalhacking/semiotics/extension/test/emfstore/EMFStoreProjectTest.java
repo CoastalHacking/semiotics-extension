@@ -8,11 +8,14 @@ import org.eclipse.emf.emfstore.client.ESWorkspaceProvider;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import io.opensemantics.semiotics.model.assessment.Assessment;
 import io.opensemantics.semiotics.model.assessment.AssessmentFactory;
 import io.opensemantics.semiotics.model.assessment.Http;
 
+@RunWith(MockitoJUnitRunner.class)
 public class EMFStoreProjectTest {
 	
 	private ESWorkspace workspace;

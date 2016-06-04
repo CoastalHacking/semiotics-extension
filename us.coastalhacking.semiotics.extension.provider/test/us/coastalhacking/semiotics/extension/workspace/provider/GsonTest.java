@@ -56,12 +56,12 @@ public class GsonTest {
 		Assert.assertTrue("bar".equals(actual));
 	}
 
-	static class TestDTO extends DTO {
+	public static class TestDTO extends DTO {
 		public String test;
 		public TestDTO nested;
 	}
 	
-	static class TestHttpDTO extends DTO {
+	public static class TestHttpDTO extends DTO {
 		public String request;
 		public String response;
 	}
