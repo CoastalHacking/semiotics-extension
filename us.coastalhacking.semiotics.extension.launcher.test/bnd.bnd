@@ -20,7 +20,11 @@ mockito: org.mockito.mockito-core;version="[1.9,2)",\
 javac.source: 1.8
 javac.target: 1.8
 
-Bundle-Version: 0.0.0.${tstamp}
+-pom: false
+-buildrepo: 
+-releaserepo: 
+
+Bundle-Version: 1.0.0.${tstamp}
 Private-Package: us.coastalhacking.semiotics.extension.launcher.test
 
 #Require-Capability: compile-only

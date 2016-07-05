@@ -6,4 +6,31 @@
 	aQute.bnd.deployer.repository.FixedIndexedRepo; \
 	        name		=       P2; \
 	        locations	=       https://raw.githubusercontent.com/OpenSemanticsIO/semiotics-main/70ca96c36cf93dde8bb6286990b561f91b28d1e6/builds/io.opensemantics.semiotics.model.site/target/repository/r5.xml
-	        
+
+#
+# Maven Settings
+# 
+
+# Override the Local and Release repository
+-plugin.6.Local = \
+    aQute.bnd.repository.maven.provider.MavenBndRepository; \
+        local   =   ~/.m2/repository; \
+        name    =   Local
+
+-plugin.9.Release = \
+    aQute.bnd.repository.maven.provider.MavenBndRepository; \
+        releaseUrl          =   "https://api.bintray.com/maven/coastalhacking/semiotics/semiotics-extension/;publish=1" ; \
+        name                =   Release
+
+Bundle-SCM: \
+  url=https://github.com/CoastalHacking, \
+  connection=scm:git:https://github.com/CoastalHacking/semiotics-extension, \
+  developerConnection=scm:git:git@github.com:CoastalHacking/semiotics-extension.git
+
+-connection-settings: ${.}/deploy_settings.xml
+-pom: \
+    groupid =   us.coastalhacking.semiotics.extension, \
+    version =   ${versionmask;===;${@version}}-SNAPSHOT
+
+-buildrepo: Local
+-releaserepo: Release

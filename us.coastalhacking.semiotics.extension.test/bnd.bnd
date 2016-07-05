@@ -57,6 +57,10 @@ Private-Package: \
 #	org.osgi.service.event;version=1.3.1
 #   us.coastalhacking.semiotics.extension.workspace.provider;version=snapshot
 
+-pom: false
+-buildrepo: 
+-releaserepo: 
+
 -resolve: auto
 -runbundles: \
 	io.opensemantics.semiotics.model.assessment;version='[1.0.0,1.0.1)',\

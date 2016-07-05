@@ -1,0 +1,16 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <servers>
+    <server>
+      <!-- http://enroute.osgi.org/tutorial_maven/350-nexus.html
+        In bnd, the id is not the name of the repository but it must match the
+        scheme, host, and port number.
+      -->
+      <id>https://api.bintray.com</id>
+      <username>BINTRAY_USERNAME</username>
+      <password>BINTRAY_PASSWORD</password>
+    </server>
+  </servers>
+</settings>
